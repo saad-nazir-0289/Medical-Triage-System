@@ -1,0 +1,3 @@
+# Combined requirements for running app.py (backend + frontend)
+-r backend/requirements.txt
+-r frontend/requirements.txt

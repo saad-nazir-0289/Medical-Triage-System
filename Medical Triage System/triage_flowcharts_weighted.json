@@ -1,0 +1,4721 @@
+[
+  {
+    "id": "CHEST_01",
+    "scenario": "CHEST",
+    "title": "Chest Pain – MI Classic",
+    "entry_keywords": [
+      "chest pain",
+      "pressure",
+      "tightness",
+      "crushing",
+      "arm pain",
+      "jaw pain",
+      "sweating"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 8,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 6,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        },
+        {
+          "min_score": 4,
+          "triage": "URGENT",
+          "action": "Go to ER within 2 hours / see doctor today"
+        },
+        {
+          "min_score": 0,
+          "triage": "STANDARD",
+          "action": "Clinic visit / self-care advice"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Is there chest pain/pressure/tightness right now?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Is the pain heavy/crushing rather than sharp?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Did it start at rest or with minimal activity?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Has it lasted 10 minutes or more?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Does it spread to left arm, jaw, neck, or back?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": "MI red-flag component: radiation"
+      },
+      "Q6": {
+        "question": "Are you sweating unusually (diaphoresis)?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": "MI red-flag component: diaphoresis"
+      },
+      "Q7": {
+        "question": "Do you feel short of breath?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Do you feel nauseated or vomiting?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Are you age 40 or older?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Do you have diabetes, high BP, or smoking history?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Is the pain getting worse over time?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Do you feel faint/dizzy or about to pass out?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "CHEST_02",
+    "scenario": "CHEST",
+    "title": "Chest Discomfort – MI Atypical",
+    "entry_keywords": [
+      "chest discomfort",
+      "upper stomach pain",
+      "nausea",
+      "shortness of breath",
+      "fatigue",
+      "diabetes"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 8,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 6,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        },
+        {
+          "min_score": 4,
+          "triage": "URGENT",
+          "action": "Go to ER within 2 hours / see doctor today"
+        },
+        {
+          "min_score": 0,
+          "triage": "STANDARD",
+          "action": "Clinic visit / self-care advice"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Is there chest discomfort or unusual pressure (even mild)?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Do you have unexplained shortness of breath?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Do you have unusual sweating?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Do you have nausea/vomiting without clear reason?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Do you have extreme fatigue or weakness suddenly?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Are you diabetic or age 50+?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Did symptoms start at rest?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Has it lasted 10 minutes or more?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Any pain spreading to arm/jaw/back?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Any dizziness/fainting?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Any known heart disease history?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Is pain/pressure worsening?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "CHEST_03",
+    "scenario": "CHEST",
+    "title": "Shortness of Breath + Leg Swelling – Pulmonary Embolism (PE)",
+    "entry_keywords": [
+      "shortness of breath",
+      "breathless",
+      "leg swelling",
+      "calf pain",
+      "chest pain",
+      "blood clot"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 8,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 6,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        },
+        {
+          "min_score": 4,
+          "triage": "URGENT",
+          "action": "Go to ER within 2 hours / see doctor today"
+        },
+        {
+          "min_score": 0,
+          "triage": "STANDARD",
+          "action": "Clinic visit / self-care advice"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Is there sudden shortness of breath?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": "PE red-flag component: sudden dyspnea"
+      },
+      "Q2": {
+        "question": "Do you have chest pain that is worse with deep breath?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Is there one-sided leg swelling or calf pain?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": "PE red-flag component: leg swelling"
+      },
+      "Q4": {
+        "question": "Did symptoms start suddenly within minutes?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Is there fast heartbeat/palpitations?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Have you fainted or nearly fainted?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Have you been immobile long (travel/bed rest) recently?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Recent surgery/trauma within 4 weeks?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Coughing blood (hemoptysis)?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Do you have active cancer or clot history?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Is oxygen feeling low (unable to speak full sentence)?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Are symptoms rapidly worsening?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "CHEST_04",
+    "scenario": "CHEST",
+    "title": "Tearing Chest Pain – Aortic Dissection",
+    "entry_keywords": [
+      "tearing pain",
+      "ripping pain",
+      "back pain",
+      "sudden severe chest pain"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 6,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 4,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        },
+        {
+          "min_score": 0,
+          "triage": "URGENT",
+          "action": "Go to ER within 2 hours"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Is the chest/back pain sudden and very severe?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Does it feel tearing/ripping and move to back/abdomen?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Any fainting or collapse?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Any new weakness/numbness or speech trouble?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Difference in pain between chest and back?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "History of uncontrolled high blood pressure?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Known aortic aneurysm/Marfan/connective tissue disease?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Any new severe shortness of breath?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Pain started during exertion or stress?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Any sweating?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Any vomiting?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Is pain persistent >10 minutes?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "CHEST_05",
+    "scenario": "CHEST",
+    "title": "Sharp Chest Pain Better When Leaning Forward – Pericarditis",
+    "entry_keywords": [
+      "sharp chest pain",
+      "worse lying down",
+      "better leaning forward",
+      "recent viral"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 8,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 6,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        },
+        {
+          "min_score": 4,
+          "triage": "URGENT",
+          "action": "Go to ER within 2 hours / see doctor today"
+        },
+        {
+          "min_score": 0,
+          "triage": "STANDARD",
+          "action": "Clinic visit / self-care advice"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Is the chest pain sharp and worse with deep breath?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Is it worse when lying flat and better sitting/leaning forward?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Recent fever/viral illness?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Is there shortness of breath?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Pain lasted >10 minutes?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Any dizziness/fainting?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": "possible tamponade risk"
+      },
+      "Q7": {
+        "question": "Any very low energy/confusion?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Any swelling of legs?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Any history of kidney failure/autoimmune disease?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Is pain severe (8/10 or more)?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Is there fast heartbeat?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Symptoms worsening quickly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "CHEST_06",
+    "scenario": "CHEST",
+    "title": "Chest Pain with Fever/Cough – Pneumonia/Pleurisy",
+    "entry_keywords": [
+      "chest pain",
+      "cough",
+      "fever",
+      "phlegm",
+      "pleuritic"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 8,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 6,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        },
+        {
+          "min_score": 4,
+          "triage": "URGENT",
+          "action": "Go to ER within 2 hours / see doctor today"
+        },
+        {
+          "min_score": 0,
+          "triage": "STANDARD",
+          "action": "Clinic visit / self-care advice"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Do you have fever or chills?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Do you have cough (with or without phlegm)?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Is chest pain worse with deep breath or cough?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Are you short of breath?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Are you unable to speak full sentences due to breathlessness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Do you have confusion or extreme sleepiness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Any bluish lips/face?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Age 65 or older?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Any chronic lung disease?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Symptoms rapidly worsening?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Ongoing vomiting/dehydration?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Chest pain severe (8/10+)?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "CHEST_07",
+    "scenario": "CHEST",
+    "title": "Anxiety/Panic with Chest Tightness",
+    "entry_keywords": [
+      "panic",
+      "anxiety",
+      "chest tightness",
+      "tingling",
+      "fear"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 7,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        },
+        {
+          "min_score": 4,
+          "triage": "URGENT",
+          "action": "See doctor today"
+        },
+        {
+          "min_score": 0,
+          "triage": "STANDARD",
+          "action": "Clinic visit / reassurance"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Did symptoms start during stress/fear/panic?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Do you feel tingling in hands/around mouth?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Is breathing fast/shallow with feeling of doom?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Any chest pain/pressure lasting >10 minutes?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Any radiation to arm/jaw/back?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Any sweating with chest pressure?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Any fainting or near-fainting?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "History of heart disease?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Age 40 or older?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Symptoms improve with slow breathing/relaxation?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Any new leg swelling or severe breathlessness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Are symptoms new and never happened before?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "CHEST_08",
+    "scenario": "CHEST",
+    "title": "Reflux/GERD Chest Burning",
+    "entry_keywords": [
+      "heartburn",
+      "burning chest",
+      "acid",
+      "after food",
+      "sour taste"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 8,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 6,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        },
+        {
+          "min_score": 4,
+          "triage": "URGENT",
+          "action": "Go to ER within 2 hours / see doctor today"
+        },
+        {
+          "min_score": 0,
+          "triage": "STANDARD",
+          "action": "Clinic visit / self-care advice"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Is the discomfort burning behind breastbone?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Worse after meals or lying down?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Sour/bitter taste or regurgitation?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Relief with antacid?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Any exertional chest pressure?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Any radiation to arm/jaw/back?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Any sweating/shortness of breath?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Pain lasting >20 minutes?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Any vomiting blood/black stools?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Unintentional weight loss or trouble swallowing?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Age 40+ with new symptoms?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Symptoms worsening rapidly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "CHEST_09",
+    "scenario": "CHEST",
+    "title": "Musculoskeletal Chest Wall Pain",
+    "entry_keywords": [
+      "chest wall pain",
+      "rib pain",
+      "tender",
+      "movement pain"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 7,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 4,
+          "triage": "URGENT",
+          "action": "See doctor today"
+        },
+        {
+          "min_score": 0,
+          "triage": "STANDARD",
+          "action": "Clinic visit / home care"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Is the pain reproducible when pressing the chest wall?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Is it worse with movement or certain positions?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Recent injury/heavy lifting?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Any shortness of breath?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Any fever?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Any crushing pressure sensation?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Any radiation to arm/jaw/back?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Any sweating with chest discomfort?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Pain duration >20 minutes at rest?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Age 40+ or heart disease history?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Dizziness/fainting?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Symptoms worsening quickly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "CHEST_10",
+    "scenario": "CHEST",
+    "title": "Heart Failure Exacerbation (Breathlessness + Swelling)",
+    "entry_keywords": [
+      "shortness of breath",
+      "swelling",
+      "orthopnea",
+      "heart failure"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 8,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 6,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        },
+        {
+          "min_score": 4,
+          "triage": "URGENT",
+          "action": "Go to ER within 2 hours / see doctor today"
+        },
+        {
+          "min_score": 0,
+          "triage": "STANDARD",
+          "action": "Clinic visit / self-care advice"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Do you have shortness of breath at rest?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Do you wake up breathless at night?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Do you need extra pillows to breathe lying down?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Leg swelling increased recently?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Rapid weight gain in 2–3 days?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Chest pressure/pain now?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Confusion or severe drowsiness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Bluish lips/face?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Very fast heartbeat?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Known heart failure or heart disease?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Unable to speak full sentence?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Symptoms rapidly worsening?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "ABD_01",
+    "scenario": "ABDOMEN",
+    "title": "Acute Abdomen – Peritonitis / Rigid Belly",
+    "entry_keywords": [
+      "severe abdominal pain",
+      "rigid abdomen",
+      "rebound",
+      "cannot move"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 8,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 6,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        },
+        {
+          "min_score": 4,
+          "triage": "URGENT",
+          "action": "Go to ER within 2 hours / see doctor today"
+        },
+        {
+          "min_score": 0,
+          "triage": "STANDARD",
+          "action": "Clinic visit / self-care advice"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Is abdominal pain severe (8/10+)?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Is the belly hard/rigid or very tender to touch?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Is there pain that worsens when releasing pressure (rebound)?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Do you have fever?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Persistent vomiting or cannot keep fluids?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Black stools or vomiting blood?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Fainting/dizziness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Pregnancy possible?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Pain started suddenly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Pain worsening quickly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "No bowel movement/gas with bloating?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Severe dehydration (very dry, not peeing)?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "ABD_02",
+    "scenario": "ABDOMEN",
+    "title": "Right Lower Abdomen Pain – Appendicitis Pattern",
+    "entry_keywords": [
+      "right lower abdominal pain",
+      "appendicitis",
+      "fever",
+      "nausea"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 7,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        },
+        {
+          "min_score": 4,
+          "triage": "URGENT",
+          "action": "Go to ER within 2 hours"
+        },
+        {
+          "min_score": 0,
+          "triage": "STANDARD",
+          "action": "Clinic visit"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Is pain mainly on the right lower side?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Did it start near the belly button then move right?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Do you have nausea/vomiting?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Do you have fever?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Pain worse when walking/coughing/jumping?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Loss of appetite?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Belly very tender to touch?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Pain worsening over hours?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Diarrhea or constipation?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Pregnancy possible?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": "if yes, consider ectopic risk"
+      },
+      "Q11": {
+        "question": "Fainting/dizziness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Severe sudden worsening pain?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "ABD_03",
+    "scenario": "ABDOMEN",
+    "title": "Right Upper Abdomen Pain – Gallbladder (Biliary/Cholecystitis)",
+    "entry_keywords": [
+      "right upper abdomen pain",
+      "gallbladder",
+      "fatty food",
+      "shoulder pain"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 8,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 6,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        },
+        {
+          "min_score": 4,
+          "triage": "URGENT",
+          "action": "Go to ER within 2 hours / see doctor today"
+        },
+        {
+          "min_score": 0,
+          "triage": "STANDARD",
+          "action": "Clinic visit / self-care advice"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Is pain in right upper abdomen or under right ribs?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Worse after fatty meals?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Pain radiates to right shoulder/back?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Nausea/vomiting?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Fever or chills?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Yellow eyes/skin (jaundice)?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Pain lasting >6 hours?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Very tender right upper belly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Dark urine/pale stools?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Confusion or severe weakness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Dehydration?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Symptoms rapidly worsening?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "ABD_04",
+    "scenario": "ABDOMEN",
+    "title": "Upper Abdomen Pain Radiating to Back – Pancreatitis Pattern",
+    "entry_keywords": [
+      "upper abdominal pain",
+      "radiating to back",
+      "vomiting",
+      "alcohol"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 8,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 6,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        },
+        {
+          "min_score": 4,
+          "triage": "URGENT",
+          "action": "Go to ER within 2 hours / see doctor today"
+        },
+        {
+          "min_score": 0,
+          "triage": "STANDARD",
+          "action": "Clinic visit / self-care advice"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Is pain in upper abdomen?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Does it go to the back?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Persistent vomiting?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Fever?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "History of heavy alcohol use or gallstones?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Pain severe (8/10+)?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Shortness of breath or chest tightness?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Confusion or extreme weakness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Fainting/dizziness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "No urine/very dry?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Symptoms worsening quickly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Pain improves leaning forward?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "ABD_05",
+    "scenario": "ABDOMEN",
+    "title": "Bowel Obstruction Pattern",
+    "entry_keywords": [
+      "bloating",
+      "no stool",
+      "no gas",
+      "vomiting",
+      "colicky pain"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 8,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 6,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        },
+        {
+          "min_score": 4,
+          "triage": "URGENT",
+          "action": "Go to ER within 2 hours / see doctor today"
+        },
+        {
+          "min_score": 0,
+          "triage": "STANDARD",
+          "action": "Clinic visit / self-care advice"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Severe bloating/distended belly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "No passing gas or stool?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Vomiting?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Vomiting fecal-smelling/green?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Crampy waves of pain?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "History of abdominal surgery/hernia?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Fever?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Severe tenderness/rigid belly?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Dehydration?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Blood in stool?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Fainting/dizziness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Symptoms worsening quickly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "ABD_06",
+    "scenario": "ABDOMEN",
+    "title": "GI Bleed Pattern",
+    "entry_keywords": [
+      "vomiting blood",
+      "black stool",
+      "blood in stool",
+      "dizzy"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 3,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 0,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Have you vomited blood or coffee-ground material?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Black tarry stools (melena)?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Bright red blood in stool?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Dizziness or fainting?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Very fast heartbeat?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Severe weakness/pale?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Abdominal pain severe?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "On blood thinners/aspirin?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Known ulcer/liver disease?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Recent heavy alcohol?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Unable to keep fluids?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Confusion?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "ABD_07",
+    "scenario": "ABDOMEN",
+    "title": "Renal Colic / Kidney Stone Pattern",
+    "entry_keywords": [
+      "flank pain",
+      "side pain",
+      "radiating groin",
+      "blood urine"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 6,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        },
+        {
+          "min_score": 3,
+          "triage": "URGENT",
+          "action": "Go to ER within 2 hours"
+        },
+        {
+          "min_score": 0,
+          "triage": "STANDARD",
+          "action": "Clinic visit"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Is pain in flank/side and very strong in waves?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Does pain move to groin?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Blood in urine?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Nausea/vomiting?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Fever/chills?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": "possible infected stone"
+      },
+      "Q6": {
+        "question": "Burning urination?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Unable to pass urine?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Single kidney or kidney disease history?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Severe dehydration?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Pain not improving at all?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Confusion/very unwell?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Pregnancy possible?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "ABD_08",
+    "scenario": "ABDOMEN",
+    "title": "Diarrhea/Dehydration Pattern",
+    "entry_keywords": [
+      "diarrhea",
+      "watery stool",
+      "dehydration",
+      "vomiting"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 8,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 6,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        },
+        {
+          "min_score": 4,
+          "triage": "URGENT",
+          "action": "Go to ER within 2 hours / see doctor today"
+        },
+        {
+          "min_score": 0,
+          "triage": "STANDARD",
+          "action": "Clinic visit / self-care advice"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Diarrhea more than 6 times/day?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Blood in stool?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Persistent vomiting?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Fever >38.5C?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Signs of dehydration (very dry mouth, little urine)?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Dizziness/fainting?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Severe belly pain?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Age under 5 or over 65?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Unable to keep any fluids down?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Diarrhea >2 days?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Severe weakness/confusion?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Known immune problem?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "ABD_09",
+    "scenario": "ABDOMEN",
+    "title": "Pregnancy-Related Acute Abdominal Pain (Ectopic Risk Screen)",
+    "entry_keywords": [
+      "pregnant",
+      "missed period",
+      "lower abdominal pain",
+      "bleeding"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 3,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 0,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Is pregnancy possible or confirmed?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Lower abdominal pain on one side?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Vaginal bleeding or spotting?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Shoulder tip pain?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Dizziness/fainting?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Pain sudden and severe?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Late/missed period?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "History of ectopic/pelvic infection?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Severe weakness/pale?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Vomiting?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Unable to stand/walk due to pain?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Symptoms worsening quickly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "ABD_10",
+    "scenario": "ABDOMEN",
+    "title": "Mild Abdominal Pain – Low Risk Screen",
+    "entry_keywords": [
+      "mild abdominal pain",
+      "indigestion",
+      "gas",
+      "bloating"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 10,
+          "triage": "STANDARD",
+          "action": "Clinic visit / self-care advice"
+        },
+        {
+          "min_score": 0,
+          "triage": "URGENT",
+          "action": "See doctor today"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Is pain mild and not worsening?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "No fever?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "No persistent vomiting?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Able to drink fluids?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "No blood in stool/vomit?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "No severe tenderness when touched?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Normal urination?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "No fainting/dizziness?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "No pregnancy possible?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "No severe bloating/no constipation?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Pain duration <24 hours?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Improves with rest?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "DM_01",
+    "scenario": "DIABETES",
+    "title": "Hypoglycemia (Low Sugar)",
+    "entry_keywords": [
+      "low sugar",
+      "shaking",
+      "sweating",
+      "confusion",
+      "diabetes"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 3,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 0,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Is patient diabetic or on insulin/diabetes meds?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Shaking/sweating/palpitations?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Confusion or behavior change?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Unable to swallow or unconscious?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Seizure?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Blood sugar <70 mg/dL if known?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Symptoms improved after sugar intake?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Repeated episodes today?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Vomiting so cannot take sugar orally?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Chest pain/shortness of breath now?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Very weak or faint?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "No access to glucose now?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "DM_02",
+    "scenario": "DIABETES",
+    "title": "DKA Screen (Vomiting + Deep Breathing)",
+    "entry_keywords": [
+      "vomiting",
+      "deep breathing",
+      "diabetic ketoacidosis",
+      "high sugar",
+      "abdominal pain"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 3,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 0,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Known diabetes OR very high sugar suspected?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Persistent vomiting or unable to keep fluids?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Deep/fast breathing?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Very thirsty/peeing a lot?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Abdominal pain?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Fruity breath smell?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Confusion/drowsiness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Sugar >250 mg/dL if known?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Ketones positive if known?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Fever/infection signs?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Missed insulin doses?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Symptoms worsening quickly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "DM_03",
+    "scenario": "DIABETES",
+    "title": "HHS/Severe Hyperglycemia (Dehydration + Confusion)",
+    "entry_keywords": [
+      "very high sugar",
+      "dehydration",
+      "confusion",
+      "weakness"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 3,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 0,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Extreme thirst or very dry mouth?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Very frequent urination?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Confusion or altered mental status?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Unable to keep fluids down?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Very weak or cannot stand?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Sugar >600 mg/dL if known?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Fever/infection signs?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Fast breathing?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Seizure?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Chest pain/shortness of breath?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "No urination for 8+ hours?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Symptoms worsening quickly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "DM_04",
+    "scenario": "DIABETES",
+    "title": "Diabetic Foot Infection / Sepsis Screen",
+    "entry_keywords": [
+      "foot ulcer",
+      "infection",
+      "fever",
+      "diabetes",
+      "wound"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 8,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 6,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        },
+        {
+          "min_score": 4,
+          "triage": "URGENT",
+          "action": "Go to ER within 2 hours / see doctor today"
+        },
+        {
+          "min_score": 0,
+          "triage": "STANDARD",
+          "action": "Clinic visit / self-care advice"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Diabetic foot wound/ulcer present?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Fever or chills?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Redness spreading or pus?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Severe pain or swelling?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Black tissue/bad smell?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Confusion or very drowsy?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Fast heartbeat or low BP symptoms (faint)?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Unable to walk due to pain?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "High sugar with infection symptoms?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Nausea/vomiting?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Shortness of breath?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Symptoms worsening rapidly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "DM_05",
+    "scenario": "DIABETES",
+    "title": "Medication Issue (Missed Insulin / Overdose)",
+    "entry_keywords": [
+      "missed insulin",
+      "insulin overdose",
+      "wrong dose",
+      "diabetes meds"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 3,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 0,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Did you miss insulin/meds recently?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Did you take extra dose by mistake?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Symptoms of low sugar (sweat/shake/confusion)?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Symptoms of high sugar (thirst/pee a lot/blurred vision)?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Vomiting or deep breathing?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Unable to eat or drink?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Unconscious or seizure?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Chest pain/shortness of breath?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "No blood sugar measurement available?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Repeated vomiting?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Confusion/drowsiness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Symptoms worsening quickly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "DM_06",
+    "scenario": "DIABETES",
+    "title": "Diabetes + Chest Symptoms (Combined Risk Screen)",
+    "entry_keywords": [
+      "diabetes",
+      "chest pain",
+      "pressure",
+      "shortness of breath"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 8,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 6,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        },
+        {
+          "min_score": 4,
+          "triage": "URGENT",
+          "action": "Go to ER within 2 hours / see doctor today"
+        },
+        {
+          "min_score": 0,
+          "triage": "STANDARD",
+          "action": "Clinic visit / self-care advice"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Known diabetes?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Chest pain/pressure/tightness now?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Radiation to arm/jaw/back?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Sweating or nausea?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Shortness of breath?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Symptoms at rest?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Lasting 10+ minutes?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Very high sugar (>300) or vomiting?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Deep/fast breathing?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Confusion/drowsiness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Dizziness/fainting?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Symptoms worsening quickly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "DM_07",
+    "scenario": "DIABETES",
+    "title": "Diabetic Neuropathy / Numbness (Non-emergency screen)",
+    "entry_keywords": [
+      "numbness",
+      "tingling",
+      "burning feet",
+      "neuropathy"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 6,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 3,
+          "triage": "URGENT",
+          "action": "See doctor today"
+        },
+        {
+          "min_score": 0,
+          "triage": "STANDARD",
+          "action": "Clinic visit"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Numbness/tingling in feet or hands?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Symptoms gradual over weeks/months?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Any new weakness on one side or face droop?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Any severe sudden headache with neck stiffness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Any foot ulcer/wound?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Any fever?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Any severe pain with swelling/redness?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Any vision loss suddenly?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Any chest pain/shortness of breath?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Sugar very uncontrolled often?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Falls due to numbness?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Symptoms worsening rapidly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "DM_08",
+    "scenario": "DIABETES",
+    "title": "Hyperglycemia Mild (Outpatient screen)",
+    "entry_keywords": [
+      "high sugar",
+      "thirst",
+      "urination",
+      "mild symptoms"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 10,
+          "triage": "STANDARD",
+          "action": "Clinic visit / hydrate / monitor sugar"
+        },
+        {
+          "min_score": 0,
+          "triage": "URGENT",
+          "action": "See doctor today"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Sugar >250 mg/dL if known?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Thirst or frequent urination?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "No vomiting?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "No deep/fast breathing?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "No confusion?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Able to drink fluids?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "No fever/infection signs?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "No severe abdominal pain?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Not pregnant?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Has insulin/med access now?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Symptoms <24 hours?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Not worsening quickly?",
+        "type": "binary_yes_no",
+        "yes_score": 0,
+        "no_score": 1,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "DM_09",
+    "scenario": "DIABETES",
+    "title": "Diabetes + Infection (General)",
+    "entry_keywords": [
+      "diabetes",
+      "fever",
+      "infection",
+      "wound",
+      "cough"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 8,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 6,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        },
+        {
+          "min_score": 4,
+          "triage": "URGENT",
+          "action": "Go to ER within 2 hours / see doctor today"
+        },
+        {
+          "min_score": 0,
+          "triage": "STANDARD",
+          "action": "Clinic visit / self-care advice"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Fever or chills?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Known diabetes?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Confusion/drowsiness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Shortness of breath?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Persistent vomiting?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Very high sugar >300 if known?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Low urine/dehydration?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Rapid heart rate?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Severe pain anywhere?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Wound with pus/spreading redness?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Unable to keep fluids down?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Symptoms worsening quickly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "DM_10",
+    "scenario": "DIABETES",
+    "title": "Diabetes + Abdominal Pain (DKA overlap)",
+    "entry_keywords": [
+      "diabetes",
+      "abdominal pain",
+      "vomiting",
+      "deep breathing"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 3,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 0,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Known diabetes?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Abdominal pain moderate/severe?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Persistent vomiting?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Deep/fast breathing?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Very thirsty/peeing a lot?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Fruity breath smell?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Confusion/drowsiness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Sugar >250 if known?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Ketones positive if known?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Fever/infection signs?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Missed insulin recently?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Symptoms worsening quickly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "MIX_01",
+    "scenario": "MIXED",
+    "title": "Mixed: Chest + Abdomen (Dissection / GI bleed overlap)",
+    "entry_keywords": [
+      "chest pain",
+      "abdominal pain",
+      "back pain",
+      "vomiting blood",
+      "black stool"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 3,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 0,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Sudden severe chest or back pain?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Severe abdominal pain at the same time?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Tearing/ripping pain?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Vomiting blood or black stools?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Fainting/dizziness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Sweating or shortness of breath?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Pain radiates to back/abdomen?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Known high BP/aortic aneurysm?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Unable to keep fluids down?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Confusion/drowsiness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Symptoms worsening quickly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Age 40+?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "MIX_02",
+    "scenario": "MIXED",
+    "title": "Mixed: Chest + Diabetes (MI + DKA overlap)",
+    "entry_keywords": [
+      "chest pain",
+      "diabetes",
+      "vomiting",
+      "deep breathing",
+      "sweating"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 3,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 0,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Chest pain/pressure now?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Radiation to arm/jaw/back?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Sweating/nausea?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Shortness of breath?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Persistent vomiting?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Deep/fast breathing?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Confusion/drowsiness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Very high sugar >300 if known?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Ketones positive if known?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Fainting/dizziness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Symptoms at rest?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Symptoms worsening quickly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  },
+  {
+    "id": "MIX_03",
+    "scenario": "MIXED",
+    "title": "Mixed: Abdomen + Diabetes (DKA dominant)",
+    "entry_keywords": [
+      "abdominal pain",
+      "diabetes",
+      "vomiting",
+      "deep breathing",
+      "thirst"
+    ],
+    "scoring": {
+      "method": "additive_weighted",
+      "red_flag_rule": "IF any answered branch has *_red_flag=true THEN END_IMMEDIATE immediately",
+      "thresholds": [
+        {
+          "min_score": 3,
+          "triage": "IMMEDIATE",
+          "action": "Call 1122 NOW"
+        },
+        {
+          "min_score": 0,
+          "triage": "VERY_URGENT",
+          "action": "Go to ER within 1 hour"
+        }
+      ]
+    },
+    "nodes": {
+      "Q1": {
+        "question": "Known diabetes?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q2": {
+        "question": "Abdominal pain moderate/severe?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q3": {
+        "question": "Persistent vomiting?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q4": {
+        "question": "Deep/fast breathing?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q5": {
+        "question": "Very thirsty/peeing a lot?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q6": {
+        "question": "Fruity breath smell?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q7": {
+        "question": "Confusion/drowsiness?",
+        "type": "binary_yes_no",
+        "yes_score": 3,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q8": {
+        "question": "Sugar >250 if known?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q9": {
+        "question": "Ketones positive if known?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q10": {
+        "question": "Fever/infection signs?",
+        "type": "binary_yes_no",
+        "yes_score": 1,
+        "no_score": 0,
+        "yes_red_flag": false,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q11": {
+        "question": "Not passing urine / very dry?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      },
+      "Q12": {
+        "question": "Symptoms worsening quickly?",
+        "type": "binary_yes_no",
+        "yes_score": 2,
+        "no_score": 0,
+        "yes_red_flag": true,
+        "no_red_flag": false,
+        "notes": ""
+      }
+    }
+  }
+]

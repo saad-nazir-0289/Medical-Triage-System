@@ -1,0 +1,6 @@
+streamlit==1.29.0
+SpeechRecognition==3.10.0
+gTTS==2.4.0
+pyaudio==0.2.14
+googletrans==4.0.0rc1
+requests==2.31.0
