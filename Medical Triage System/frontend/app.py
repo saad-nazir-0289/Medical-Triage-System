@@ -1,5 +1,8 @@
 import streamlit as st
-import speech_recognition as sr
+try:
+    import speech_recognition as sr
+except ImportError:
+    sr = None
 from gtts import gTTS
 import os
 import tempfile
@@ -366,8 +369,8 @@ if 'backend_session_state' not in st.session_state:
     st.session_state.backend_session_state = None
 
 # Backend API URL - use env var or default for local/HF Spaces
-import os
 BACKEND_URL = os.environ.get("TRIAGE_BACKEND_URL", "http://localhost:8000")
+VOICE_INPUT_ENABLED = os.environ.get("ENABLE_VOICE_INPUT", "false").lower() == "true"
 
 # Language configurations
 LANGUAGE_CONFIG = {
@@ -532,6 +535,10 @@ def record_audio(language='en-US', duration=5):
     """
     Record audio from microphone and convert to text
     """
+    if sr is None:
+        st.error("Voice input is not available in this deployment.")
+        return None
+
     recognizer = sr.Recognizer()
     
     try:
@@ -763,7 +770,11 @@ with st.sidebar:
     
     # Recording duration
     st.markdown("### 🎤 Voice Input")
-    recording_duration = st.slider("Recording Duration (seconds)", 3, 10, 5, help="Adjust how long you want to record your voice input")
+    if VOICE_INPUT_ENABLED:
+        recording_duration = st.slider("Recording Duration (seconds)", 3, 10, 5, help="Adjust how long you want to record your voice input")
+    else:
+        recording_duration = 5
+        st.info("Voice input is available in local desktop runs only.")
     
     st.divider()
     
@@ -781,7 +792,7 @@ with st.sidebar:
         <h4 style='color: #e2e8f0; margin-top: 0; margin-bottom: 0.75rem;'>📖 How to Use</h4>
         <ol style='color: #cbd5e1; padding-left: 1.25rem; line-height: 1.8; font-size: 0.9rem;'>
             <li><strong>Type</strong> your symptoms in Roman Urdu/Punjabi/English</li>
-            <li><strong>Or click</strong> 🎤 Voice Input to speak</li>
+            <li><strong>Or click</strong> 🎤 Voice Input to speak (local runs)</li>
             <li>AI will respond in your selected language</li>
             <li>Toggle audio to hear responses</li>
         </ol>
@@ -916,7 +927,13 @@ with st.form(key='chat_form', clear_on_submit=True):
 # Voice button outside form
 col1, col2, col3 = st.columns([4, 1.2, 4.8], gap="medium")
 with col2:
-    voice_button = st.button("🎤 Voice", use_container_width=True, type="secondary")
+    voice_button = st.button(
+        "🎤 Voice",
+        use_container_width=True,
+        type="secondary",
+        disabled=not VOICE_INPUT_ENABLED,
+        help=None if VOICE_INPUT_ENABLED else "Voice input is disabled for cloud deployment."
+    )
 
 # Handle voice input - automatically send after transcription
 if voice_button:

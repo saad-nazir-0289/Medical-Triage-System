@@ -4,6 +4,7 @@ FastAPI backend for Medical Triage System.
 POST /diagnose - accepts patient input and session state, returns triage response.
 """
 
+import os
 from datetime import datetime
 from typing import Any, Optional
 
@@ -145,7 +146,9 @@ def health():
 
 @app.on_event("startup")
 async def startup():
-    """Pre-load FAISS and embedder on startup (LLM loads on first use)."""
+    """Optionally pre-load models on startup."""
+    if os.environ.get("TRIAGE_PRELOAD_MODELS", "false").lower() != "true":
+        return
     try:
         triage_engine.ensure_models_loaded()
     except Exception as e:

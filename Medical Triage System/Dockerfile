@@ -3,6 +3,13 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
+ENV PYTHONUNBUFFERED=1 \
+    STREAMLIT_PORT=7860 \
+    STREAMLIT_SERVER_HEADLESS=true \
+    STREAMLIT_BROWSER_GATHER_USAGE_STATS=false \
+    TRIAGE_PRELOAD_MODELS=false \
+    ENABLE_VOICE_INPUT=false
+
 # Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \

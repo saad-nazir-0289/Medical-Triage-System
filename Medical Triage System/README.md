@@ -149,7 +149,14 @@ Then open http://localhost:8501 (or the URL Streamlit prints). The frontend conn
 1. Create a new Space, choose **Docker** SDK.
 2. Push this repository or upload the contents.
 3. HF will build from the Dockerfile and run the app.
-4. Live demo: `https://huggingface.co/spaces/<your-username>/<space-name>`
+4. Voice input is disabled in cloud deployments; text chat and audio playback still work.
+5. The first backend request may take longer because models load lazily at runtime to avoid startup failures on free hosting.
+6. Live demo: `https://huggingface.co/spaces/<your-username>/<space-name>`
+
+### Free Public Hosting Recommendation
+- Use **Hugging Face Spaces** for a free public demo of this Python + ML app.
+- GitHub alone cannot host the running app; it only stores the code.
+- This repository is already structured for Spaces with a root `Dockerfile` and launcher `app.py`.
 
 ### GitHub
 - Push the repo for code storage and version control.
