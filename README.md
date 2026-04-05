@@ -617,4 +617,4 @@ That is where triage matters most.
 ## Credits
 
 Developed as part of **AI Hackathon’26**
-**All rights reserved**
+**All rights reserved 2026**
